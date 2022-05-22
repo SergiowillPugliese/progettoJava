@@ -27,6 +27,8 @@ public class MenuRepository {
                 );
                 menuList.add(menu);
             }
+            conn.close();
+            stmt.close();
 
         } catch (SQLException e){
             e.printStackTrace();
