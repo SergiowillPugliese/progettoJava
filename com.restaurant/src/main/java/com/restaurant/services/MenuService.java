@@ -15,7 +15,7 @@ public class MenuService {
 	@Resource
 	private MenuRepository menuRepository;
 	
-	@GetMapping(value = "getMenu")
+	@GetMapping(value = "/getMenu")
 	public List<MenuEntity> getMenus(){
 		return menuRepository.findAll();
 	}
@@ -25,7 +25,7 @@ public class MenuService {
 		return menuRepository.findById(id).get();
 	}
 	
-	@PostMapping(value = "saveMenu")
+	@PostMapping(value = "/saveMenu")
 	public MenuEntity saveMenu(@RequestBody MenuEntity menu) {
 		return menuRepository.save(menu);
 	}

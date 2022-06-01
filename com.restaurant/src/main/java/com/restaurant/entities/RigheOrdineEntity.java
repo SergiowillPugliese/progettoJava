@@ -1,6 +1,7 @@
 package com.restaurant.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "righe_ordine")
@@ -9,13 +10,13 @@ public class RigheOrdineEntity {
 	@GeneratedValue(strategy =  GenerationType.AUTO)
 	private Integer id;
 	
-	//@Column
-	//@OneToMany
-	//private OrdineEntity ordineEntity;
+	@Column
+	@OneToMany
+	private List<OrdineEntity> ordineEntity;
 	
-	//@Column
-	//@OneToMany
-	//private MenuEntity menu;
+	@Column
+	@OneToMany
+	private List<MenuEntity> menu;
 	
 	@Column
 	private Integer quantita;
@@ -28,21 +29,21 @@ public class RigheOrdineEntity {
 		this.id = id;
 	}
 
-	/*public OrdineEntity getOrdineEntity() {
+	public List<OrdineEntity> getOrdineEntity() {
 		return ordineEntity;
 	}
 
-	public void setOrdineEntity(OrdineEntity ordineEntity) {
+	public void setOrdineEntity(List<OrdineEntity> ordineEntity) {
 		this.ordineEntity = ordineEntity;
-	}*/
+	}
 
-	/*public MenuEntity getMenu() {
+	public List<MenuEntity> getMenu() {
 		return menu;
 	}
 
-	public void setMenu(MenuEntity menu) {
+	public void setMenu(List<MenuEntity> menu) {
 		this.menu = menu;
-	}*/
+	}
 
 	public Integer getQuantita() {
 		return quantita;
@@ -51,8 +52,4 @@ public class RigheOrdineEntity {
 	public void setQuantita(Integer quantita) {
 		this.quantita = quantita;
 	}
-	
-	
-	
-	
 }

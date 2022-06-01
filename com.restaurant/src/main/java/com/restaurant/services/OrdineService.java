@@ -1,7 +1,10 @@
 package com.restaurant.services;
 
 import com.restaurant.entities.OrdineEntity;
+import com.restaurant.entities.RigheOrdineEntity;
 import com.restaurant.repositories.OrdineRepository;
+import com.restaurant.repositories.RigheOrdineRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +15,12 @@ import java.util.List;
 @RequestMapping(path="/ordine") 
 public class OrdineService {
 	
-	@Resource
+	@Autowired
 	private OrdineRepository ordineRepository;
+	@Autowired
+	private RigheOrdineRepository righeOrdineRepository;
 	
-	@GetMapping
+	@GetMapping(value = "/getOrdine")
 	public List<OrdineEntity> getOrdines(){
 		return ordineRepository.findAll();
 	}
@@ -25,9 +30,9 @@ public class OrdineService {
 		return ordineRepository.findById(id).get();
 	}
 	
-	@PostMapping
-	public OrdineEntity saveOrdine(@RequestBody OrdineEntity ordine) {
-		return ordineRepository.save(ordine);
+	@PostMapping(value = "/saveOrdine")
+	public RigheOrdineEntity saveOrdine(@RequestBody RigheOrdineEntity righeOrdine) {
+		return righeOrdineRepository.save(righeOrdine);
 	}
 	
 	

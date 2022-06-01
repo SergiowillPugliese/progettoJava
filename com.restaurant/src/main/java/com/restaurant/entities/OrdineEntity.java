@@ -1,5 +1,6 @@
 package com.restaurant.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -25,7 +26,21 @@ public class OrdineEntity {
 	
 	@Column
 	private Boolean pagato;
-	
+
+	@ManyToOne
+	@JsonIgnore
+	private RigheOrdineEntity righeOrdineEntity;
+
+	public RigheOrdineEntity getRigheOrdineEntity() {
+		return righeOrdineEntity;
+	}
+
+	public void setRigheOrdineEntity(RigheOrdineEntity righeOrdineEntity) {
+		this.righeOrdineEntity = righeOrdineEntity;
+	}
+
+
+
 	@Column
 	//private StaffEntity staff;
 
@@ -60,15 +75,5 @@ public class OrdineEntity {
 	public void setPagato(Boolean pagato) {
 		this.pagato = pagato;
 	}
-
-	/*public StaffEntity getStaff() {
-		return staff;
-	}
-
-	public void setStaff(StaffEntity staff) {
-		this.staff = staff;
-	}*/
-	
-	
 
 }

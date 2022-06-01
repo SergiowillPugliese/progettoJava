@@ -1,5 +1,7 @@
 package com.restaurant.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,7 +23,18 @@ public class MenuEntity {
 	
 	@Column
 	private String categoria;
-	
+
+	@ManyToOne
+	@JsonIgnore
+	private RigheOrdineEntity righeOrdineEntity;
+
+	public RigheOrdineEntity getRigheOrdineEntity() {
+		return righeOrdineEntity;
+	}
+
+	public void setRigheOrdineEntity(RigheOrdineEntity righeOrdineEntity) {
+		this.righeOrdineEntity = righeOrdineEntity;
+	}
 
 	public Integer getId() {
 		return id;
